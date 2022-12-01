@@ -5,7 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Team.destroy_all
 
 10.times do
     Team.create(name:Faker::Sports::Football.team)
+
+end
+
+
+111.times do
+    Player.create(
+        name:Faker::Sports::Football.player,
+        position:Faker::Sports::Football.position,
+        team_id:rand(Team.first.id..Team.last.id)
+        )
 end

@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css';
 import NavBar from './Components/NavBar';
-import Competitions from './Components/Competitions';
+import Tournaments from './Components/Tournaments';
 import Home from './Components/Home'
 import Teams from './Components/Teams';
 
@@ -15,7 +15,7 @@ function App() {
 
           <Route path='/' element={<Home/>} />
           <Route path='/teams' element={<Teams/>} />
-          <Route path='/competitions' element={<Competitions/>} />
+          <Route path='/tournaments' element={<Tournaments/>} />
 
         </Routes>
        

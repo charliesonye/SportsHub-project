@@ -1,9 +1,9 @@
 import React from 'react'
 
- function Competitions() {
+ function Tournaments() {
   return (
     <div>Competitions</div>
   )
 }
 
-export default Competitions
+export default Tournaments
