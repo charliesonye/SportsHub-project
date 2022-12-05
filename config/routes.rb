@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  post '/signup', to: 'users#create'
   resources :players
   resources :teams
   # Routing logic: fallback requests for React Router.

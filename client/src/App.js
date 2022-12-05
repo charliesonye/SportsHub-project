@@ -1,11 +1,16 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {useState, useEffect} from 'react';
 import './App.css';
 import NavBar from './Components/NavBar';
 import Tournaments from './Components/Tournaments';
 import Home from './Components/Home'
 import Teams from './Components/Teams';
+import Login from './Pages/Login';
 
 function App() {
+  const [user, setUser] = useState(null)
+  
+  if(!user) return <Login onLogin={setUser} />
   return (
     <div className="App">
          <Router>
@@ -18,7 +23,7 @@ function App() {
           <Route path='/tournaments' element={<Tournaments/>} />
 
         </Routes>
-       
+      
       </header>
       </Router>
     </div>

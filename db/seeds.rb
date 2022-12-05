@@ -8,14 +8,18 @@
 Team.destroy_all
 
 10.times do
-    Team.create(name:Faker::Sports::Football.team)
+    Team.create(name:Faker::Sports::Football.unique.team)
+    User.create(
+        username:Faker::Hacker.unique.verb,
+        password_digest:Faker::Code.unique.sin
+        )
 
 end
 
 
 111.times do
     Player.create(
-        name:Faker::Sports::Football.player,
+        name:Faker::Sports::Football.unique.player,
         position:Faker::Sports::Football.position,
         team_id:rand(Team.first.id..Team.last.id)
         )
