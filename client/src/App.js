@@ -9,8 +9,17 @@ import Login from './Pages/Login';
 
 function App() {
   const [user, setUser] = useState(null)
+
+  useEffect(()=>{
+    fetch('/me').then((res)=>{
+      if(res.ok){
+        res.json().then((user)=> setUser(user))
+      }
+    })
+  }, [])
   
   if(!user) return <Login onLogin={setUser} />
+
   return (
     <div className="App">
          <Router>
