@@ -8,9 +8,20 @@ import LoginForm from '../Components/LoginForm'
     <div>
         {
             isLogin ? (
+                <>
                 <LoginForm onLogin={onLogin}/>
+                <button onClick={() =>setIsLogin(false) } >
+                    Sign Up 
+                </button>
+                </>
+                
             ) :  (
+                <>
                 <SignupForm onLogin={onLogin} />
+                <button onClick={()=> setIsLogin(true)}>
+                    Sign In
+                </button>
+                </>
             )
         }
        
