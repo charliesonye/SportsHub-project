@@ -61,7 +61,7 @@ function SignupForm({onLogin}) {
       <>
           {
             errors.map((error)=>(
-              <li>error</li>
+              <li>{error}</li>
             ))
           }
         </>
