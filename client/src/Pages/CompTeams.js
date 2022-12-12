@@ -37,6 +37,7 @@ import EditComp from '../Components/EditComp'
               onUpdateComps={onUpdateComps} 
               onShowEdit={setShowEdit} 
               showEdit={showEdit} 
+              setComp={setComp}
             />
             )
             : 

@@ -18,8 +18,11 @@ import {useParams, useNavigate} from 'react-router-dom'
     })
     .then((res)=> res.json())
     .then((newName)=> {
-        console.log(newName)
+        
+        onUpdateComps(newName)
         onShowEdit(!showEdit)
+        navigate('/competitions')
+       
         
     })
     

@@ -4,15 +4,16 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Competitions from './Pages/Competitions';
 import Home from './Components/Home'
-import Teams from './Components/Teams';
+import Teams from './Pages/Teams'
 import Login from './Pages/Login';
 import { CropPortrait, RssFeed } from '@material-ui/icons';
 import CompTeams from './Pages/CompTeams';
+import TeamPlayers from './Pages/TeamPlayers';
 
 function App() {
   const [user, setUser] = useState(null)
   const [comps, setComps] = useState([])
- 
+  const [teams, setTeams] = useState([])
 
   useEffect(()=>{
     fetch('/me').then((res)=>{
@@ -31,8 +32,20 @@ function App() {
    
   }, [comps])
 
+  
+
+  useEffect(() =>{
+    fetch('/teams')
+    .then((res)=> res.json())
+    .then((data)=> setTeams(data))
+  }, [])
+
   function handleAddComps(newComp){
     setComps([...comps, newComp])
+  }
+
+  function handleAddTeams(newTeam){
+    setTeams([...teams, newTeam])
   }
 
   function handleUpdateComps(updatedObj){
@@ -66,16 +79,27 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home/>} />
-          <Route path='/teams' element={<Teams/>} />
+          <Route 
+            path='/teams' 
+            element={<Teams
+                teams={teams}
+                onAddTeam={handleAddTeams}
+                comps={comps}
+              />} 
+          />
           <Route 
             path='/competitions' 
             element={<Competitions 
                 comps={comps} 
                 onAddComps={handleAddComps}
                
-                />}
+              />}
             
-            />
+          />
+          <Route 
+            path='/teams/:id' 
+            element={<TeamPlayers />}
+          /> 
           <Route 
             path='/competitions/:id' 
             element={<CompTeams  
