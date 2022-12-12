@@ -59,11 +59,11 @@ function SignupForm({onLogin}) {
         
       </form>
       <>
-          {
+          {/* {
             errors.map((error)=>(
               <li>{error}</li>
             ))
-          }
+          } */}
         </>
     </div>
   )

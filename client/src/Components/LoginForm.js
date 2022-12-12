@@ -49,11 +49,11 @@ import React, {useState} from 'react'
                 type='submit'
             />
         </form>
-        {
+        {/* {
             errors.map((error)=>(
               <li>{error}</li>
             ))
-          }
+          } */}
     </div>
   )
 }

@@ -13,7 +13,16 @@ const linkStyles = {
   color: "white",
 }; 
 
- function NavBar() {
+ function NavBar({setUser}) {
+  
+  function handleLogout(){
+    fetch('/logout', {
+      method: 'DELETE'
+     }).then((res)=> {
+      if(res.ok){setUser(null)}
+     })
+  }
+  
   return (
     <div>
       <NavLink end to='/' style={linkStyles}>
@@ -25,6 +34,10 @@ const linkStyles = {
       <NavLink to='/competitions' style={linkStyles}>
         Competitions
       </NavLink>
+
+      <>
+      <button onClick={handleLogout} >Log Out</button>
+      </>
     </div>
   )
 }
