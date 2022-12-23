@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+
 
  function AddTeamsForm({comps, onAddTeams}) {
   const [teamName, setTeamName] = useState('')
@@ -21,7 +21,7 @@ import {useNavigate} from 'react-router-dom'
     })
     .then((res)=> res.json())
     .then((data)=> {
-        console.log(data)
+       onAddTeams(data)
     })
   }
   return (

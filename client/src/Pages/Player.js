@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React from 'react'
 
  function Player({player}) {
   
@@ -9,6 +9,7 @@ import React, {useState, useEffect } from 'react'
     <div>
         <li>Player: {player.name}</li>
         <li>Position: {player.position}</li><br/>
+    
     </div>
   )
 }

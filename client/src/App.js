@@ -6,7 +6,6 @@ import Competitions from './Pages/Competitions';
 import Home from './Components/Home'
 import Teams from './Pages/Teams'
 import Login from './Pages/Login';
-import { CropPortrait, RssFeed } from '@material-ui/icons';
 import CompTeams from './Pages/CompTeams';
 import TeamPlayers from './Pages/TeamPlayers';
 
@@ -30,9 +29,7 @@ function App() {
       }
     })
    
-  }, [comps])
-
-  
+  }, [])
 
   useEffect(() =>{
     fetch('/teams')
@@ -105,6 +102,7 @@ function App() {
             element={<CompTeams  
               onDeleteComps={handleDeleteComps}
               onUpdateComps={handleUpdateComps}
+              comps={comps}
               />} 
           />
 

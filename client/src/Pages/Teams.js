@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import Players from '../Components/Players'
-import Coaches from '../Components/Coaches'
+import React from 'react'
 import TeamLink from '../Components/TeamLink'
 import AddTeamsForm from '../Components/AddTeamsForm'
 

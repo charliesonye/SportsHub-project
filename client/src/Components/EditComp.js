@@ -21,7 +21,7 @@ import {useParams, useNavigate} from 'react-router-dom'
         
         onUpdateComps(newName)
         onShowEdit(!showEdit)
-        navigate('/competitions')
+        // navigate('/competitions')
        
         
     })

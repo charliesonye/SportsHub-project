@@ -22,7 +22,7 @@ import React, {useState} from 'react'
         if(res.ok){
             res.json().then((user)=> onLogin(user))
         }else{
-            res.json().then((errs)=> setErrors(errs))
+            res.json().then((errs)=> setErrors(errs.errors))
         }
     })
   }
@@ -48,12 +48,13 @@ import React, {useState} from 'react'
             <input
                 type='submit'
             />
-        </form>
-        {/* {
-            errors.map((error)=>(
-              <li>{error}</li>
-            ))
-          } */}
+        </form><br />
+        {
+        errors.map((error)=> (
+          <li key={error}>{error}</li>
+        ))
+      }
+        
     </div>
   )
 }

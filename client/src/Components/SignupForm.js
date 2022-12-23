@@ -24,7 +24,7 @@ function SignupForm({onLogin}) {
       if(res.ok){
         res.json().then((user)=> onLogin(user))
       }else {
-        res.json().then((err)=> setErrors(err))
+        res.json().then((err)=> setErrors(err.errors))
       }
     })
   }
@@ -57,14 +57,14 @@ function SignupForm({onLogin}) {
           type='submit'
         />
         
-      </form>
-      <>
-          {/* {
-            errors.map((error)=>(
-              <li>{error}</li>
-            ))
-          } */}
-        </>
+      </form><br/>
+      {
+        errors.map((error)=> (
+          <li key={error}>{error}</li>
+        ))
+      }
+     
+      
     </div>
   )
 }

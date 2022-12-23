@@ -3,7 +3,7 @@ import {useParams, useNavigate} from 'react-router-dom'
 import EditComp from '../Components/EditComp'
 
 
- function CompTeams({onDeleteComps, onUpdateComps}) {
+ function CompTeams({onDeleteComps, onUpdateComps, comps}) {
   const [comp, setComp] = useState({
     teams: []
   })
@@ -16,7 +16,7 @@ import EditComp from '../Components/EditComp'
     fetch(`/competitions/${params.id}`)
     .then((res)=> res.json())
     .then((comp)=> setComp(comp))
-  }, [])
+  }, [params.id])
 
   function handleDelete(){
     fetch(`/competitions/${params.id}`, {
@@ -26,7 +26,7 @@ import EditComp from '../Components/EditComp'
     navigate('/competitions')
 
   }
-
+  
     return (
     <div>
 
