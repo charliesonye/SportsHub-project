@@ -43,7 +43,10 @@ function App() {
 
   function handleAddTeams(newTeam){
     setTeams([...teams, newTeam])
+    
   }
+
+
 
   function handleUpdateComps(updatedObj){
     const updatedComps = comps.map((comp) =>{
@@ -63,7 +66,7 @@ function App() {
     setComps(newListOfComps)
   }
 
-  
+
    
   
   if(!user) return <Login onLogin={setUser} />
@@ -75,7 +78,10 @@ function App() {
       <header className="App-header">
         <Routes>
 
-          <Route path='/' element={<Home/>} />
+          <Route path='/' element={<Home
+              teams={teams}
+            />} 
+          />
           <Route 
             path='/teams' 
             element={<Teams

@@ -1,14 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import TeamPlayers from '../Pages/TeamPlayers'
 
-function TeamLink({team}) {
+function TeamLink({team, showTeamPlayer}) {
   
     return (
     <div>
-      <Link to={`/teams/${team.id}`} style={{color: 'white'}}>
-
-        <li>{team.name}</li>       
-      </Link>
+      
+    {team.name}<hr/>       
+    <br/>
+    {
+      showTeamPlayer ?
+      (
+        <TeamPlayers team={team} />
+      )
+        :
+      (
+        null
+      )
+    }
     </div>
   )
 }

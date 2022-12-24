@@ -18,10 +18,12 @@ class CompetitionsController < ApplicationController
     end
 
     def update     
+        user = User.find_by(id: session[:user_id])
         competition = Competition.find_by(id: params[:id])
         competition.update(name: params[:name])
         render json: competition
-       
+
+        
     end
     # def update
     #     user = User.find_by(id: session[:user_id])

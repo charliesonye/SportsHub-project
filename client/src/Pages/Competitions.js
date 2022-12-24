@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import CompetitionLink from '../Components/CompetitionLink'
+import CompTeams from './CompTeams'
 
  function Competitions({comps, onAddComps}) {
   const [compName, setCompName] = useState('')
-  
+  const [showCompTeam, setShowCompTeam] = useState(false)
   function handleSubmit(e){
     e.preventDefault()
   
@@ -25,11 +26,21 @@ import CompetitionLink from '../Components/CompetitionLink'
 
  
 
-  const compList = comps.map((comp) => <CompetitionLink key= {comp.id} comp={comp} />)
+  const compList = comps.map((comp) => <CompetitionLink 
+    key= {comp.id} 
+    comp={comp}
+    showCompTeam={showCompTeam}
+    setShowCompTeam={setShowCompTeam}
+    />)
   return (
-    <div>
-     Competitions<hr/>
+   <div>
+      
+        Competitions<hr/>
+        <button onClick={()=>setShowCompTeam(!showCompTeam)} >
+          Show Team List
+        </button>
       {compList}
+      
 
       <br/>
       <form onSubmit={handleSubmit}>
@@ -44,6 +55,7 @@ import CompetitionLink from '../Components/CompetitionLink'
           type='submit'
         />
       </form>
+     
     </div>
   )
 }

@@ -1,14 +1,29 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import CompTeams from '../Pages/CompTeams'
+export const CompContext  = React.createContext()
 
-function CompetitionLink({comp}) {
+function CompetitionLink({comp, showCompTeam}) {
   
   
     return (
     <div>
-        <Link to={`/competitions/${comp.id}`} style={{color: 'white'}} >
-         {comp.name}
-        </Link>
+      
+      {comp.name}
+      <br/>
+        {
+          showCompTeam?
+            (
+              <CompTeams comp={comp}/>
+            )
+              :
+            (
+              null
+            )
+
+        }
+        
+      
         
     </div>
   )

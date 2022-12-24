@@ -1,22 +1,23 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,useContext} from 'react'
+import { CompContext } from '../Components/CompetitionLink'
 import {useParams, useNavigate} from 'react-router-dom'
 import EditComp from '../Components/EditComp'
 
 
- function CompTeams({onDeleteComps, onUpdateComps, comps}) {
-  const [comp, setComp] = useState({
-    teams: []
-  })
+ function CompTeams({onDeleteComps, onUpdateComps, comp}) {
+  // const [comp, setComp] = useState({
+  //   teams: []
+  // })
   const [showEdit, setShowEdit] = useState(false)
 
   const params = useParams()
   const navigate = useNavigate()
  
-  useEffect(()=> {
-    fetch(`/competitions/${params.id}`)
-    .then((res)=> res.json())
-    .then((comp)=> setComp(comp))
-  }, [params.id])
+  // useEffect(()=> {
+  //   fetch(`/competitions/${params.id}`)
+  //   .then((res)=> res.json())
+  //   .then((comp)=> setComp(comp))
+  // }, [params.id])
 
   function handleDelete(){
     fetch(`/competitions/${params.id}`, {
@@ -26,9 +27,9 @@ import EditComp from '../Components/EditComp'
     navigate('/competitions')
 
   }
-  
+
     return (
-    <div>
+    <div className='CompTeamContainer'>
 
         <button onClick={handleDelete}>Remove Competition</button>
         <button onClick={()=> setShowEdit(!showEdit)}>Edit Competition Name</button>
@@ -37,7 +38,7 @@ import EditComp from '../Components/EditComp'
               onUpdateComps={onUpdateComps} 
               onShowEdit={setShowEdit} 
               showEdit={showEdit} 
-              setComp={setComp}
+              // setComp={setComp}
             />
             )
             : 

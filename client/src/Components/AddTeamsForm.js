@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 
 
- function AddTeamsForm({comps, onAddTeams}) {
+ function AddTeamsForm({comps, onAddTeam}) {
   const [teamName, setTeamName] = useState('')
   const [compSelection, setCompSelection] = useState('')
+    
     
   function handleSubmit(e){
     e.preventDefault()
@@ -21,8 +22,10 @@ import React, {useState} from 'react'
     })
     .then((res)=> res.json())
     .then((data)=> {
-       onAddTeams(data)
-    })
+       onAddTeam(data)
+       setTeamName('')
+        
+})
   }
   return (
     <div>
