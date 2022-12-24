@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import Player from './Player'
 
 
- function TeamPlayers({team}) {
+ function TeamPlayers({teams}) {
     // const [team, setTeam] = useState({
     //     players: []
     // })
@@ -48,10 +48,10 @@ import Player from './Player'
     // }
    
   
-    const teamList = team.players.map((player)=> <Player key={player.id} player={player} />)
+    const teamList = teams[params.id]?.players.map((player)=> <Player key={player.id} player={player} />)
     return (
     <div>
-      
+        <h2>Team: {teams[params.id]?.name}</h2><hr />
         {teamList}
 
         {/* <h3>Add Players: </h3><hr />

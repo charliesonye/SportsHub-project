@@ -1,10 +1,11 @@
-import React, {useState, useEffect,useContext} from 'react'
-import { CompContext } from '../Components/CompetitionLink'
+import React, {useState, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 import EditComp from '../Components/EditComp'
 
 
- function CompTeams({onDeleteComps, onUpdateComps, comp}) {
+ function CompTeams({onDeleteComps, handleUpdateComps, comps}) {
+ 
+ 
   // const [comp, setComp] = useState({
   //   teams: []
   // })
@@ -12,7 +13,7 @@ import EditComp from '../Components/EditComp'
 
   const params = useParams()
   const navigate = useNavigate()
- 
+  
   // useEffect(()=> {
   //   fetch(`/competitions/${params.id}`)
   //   .then((res)=> res.json())
@@ -27,7 +28,7 @@ import EditComp from '../Components/EditComp'
     navigate('/competitions')
 
   }
-
+ 
     return (
     <div className='CompTeamContainer'>
 
@@ -35,19 +36,19 @@ import EditComp from '../Components/EditComp'
         <button onClick={()=> setShowEdit(!showEdit)}>Edit Competition Name</button>
         { showEdit ? 
             (<EditComp 
-              onUpdateComps={onUpdateComps} 
+              onUpdateComps={handleUpdateComps} 
               onShowEdit={setShowEdit} 
               showEdit={showEdit} 
-              // setComp={setComp}
+              
             />
             )
             : 
-            (<h2>{comp.name}</h2> )
+            (<h2>{comps[params.id]?.name}</h2> )
          
          } 
         <h4>Teams Participating:</h4><hr/>
         {
-            comp.teams.map((team)=>(
+            comps[params.id]?.teams.map((team)=>(
                 <li key={team.id} >{team.name}</li>
             ))
         }

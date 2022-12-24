@@ -1,17 +1,18 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import CompTeams from '../Pages/CompTeams'
 export const CompContext  = React.createContext()
 
 function CompetitionLink({comp, showCompTeam}) {
   
-  
+  const navigate = useNavigate()
+
     return (
     <div>
-      
-      {comp.name}
+      {/* <button  >{comp.name} </button> */}
+      <Link to={`/competitions/${comp.id}`}>{comp.name}</Link>
       <br/>
-        {
+        {/* {
           showCompTeam?
             (
               <CompTeams comp={comp}/>
@@ -21,7 +22,7 @@ function CompetitionLink({comp, showCompTeam}) {
               null
             )
 
-        }
+        } */}
         
       
         

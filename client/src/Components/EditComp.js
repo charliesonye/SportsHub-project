@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 
- function EditComp({onUpdateComps, onShowEdit, showEdit}) {
+ function EditComp({onUpdateComps, onShowEdit, showEdit, comp}) {
   const [compName, setCompName] = useState('')
   const params = useParams()
   const navigate = useNavigate()
@@ -21,7 +21,7 @@ import {useParams, useNavigate} from 'react-router-dom'
         
         onUpdateComps(newName)
         onShowEdit(!showEdit)
-        // navigate('/competitions')
+        navigate('/competitions')
        
         
     })

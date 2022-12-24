@@ -29,7 +29,7 @@ function App() {
       }
     })
    
-  }, [])
+  }, [comps])
 
   useEffect(() =>{
     fetch('/teams')
@@ -60,7 +60,7 @@ function App() {
   
     setComps(updatedComps)
   }
-
+  
   function handleDeleteComps(id){
     const newListOfComps = comps.filter(comp=> comp.id === id)
     setComps(newListOfComps)
@@ -101,13 +101,15 @@ function App() {
           />
           <Route 
             path='/teams/:id' 
-            element={<TeamPlayers />}
+            element={<TeamPlayers
+                teams={teams}
+              />}
           /> 
           <Route 
             path='/competitions/:id' 
             element={<CompTeams  
               onDeleteComps={handleDeleteComps}
-              onUpdateComps={handleUpdateComps}
+              handleUpdateComps={handleUpdateComps}
               comps={comps}
               />} 
           />

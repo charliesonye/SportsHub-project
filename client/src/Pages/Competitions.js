@@ -36,9 +36,7 @@ import CompTeams from './CompTeams'
    <div>
       
         Competitions<hr/>
-        <button onClick={()=>setShowCompTeam(!showCompTeam)} >
-          Show Team List
-        </button>
+       
       {compList}
       
 

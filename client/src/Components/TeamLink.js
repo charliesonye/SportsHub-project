@@ -7,9 +7,10 @@ function TeamLink({team, showTeamPlayer}) {
     return (
     <div>
       
-    {team.name}<hr/>       
-    <br/>
-    {
+   
+    <Link to={`/teams/${team.id}`}>{team.name}</Link>    
+    <hr/><br/>
+    {/* {
       showTeamPlayer ?
       (
         <TeamPlayers team={team} />
@@ -18,7 +19,7 @@ function TeamLink({team, showTeamPlayer}) {
       (
         null
       )
-    }
+    } */}
     </div>
   )
 }

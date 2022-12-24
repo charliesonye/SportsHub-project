@@ -44,9 +44,7 @@ function Teams({teams, onAddTeam, comps}) {
   return (
     <div>
       <h2>Teams: </h2><hr/>
-      <button onClick={()=> setShowTeamPlayer(!showTeamPlayer)}>
-        Show Team's Players
-      </button>
+      
       {teamsList}
       <br/><AddTeamsForm comps={comps} onAddTeam={onAddTeam} />
       <h3>Add Players: </h3><hr />

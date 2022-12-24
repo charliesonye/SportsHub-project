@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-    before_action :authorize
+    # before_action :authorize, only: [:update, :destroy]
 
     def index
         competitions = Competition.all
@@ -18,7 +18,7 @@ class CompetitionsController < ApplicationController
     end
 
     def update     
-        user = User.find_by(id: session[:user_id])
+       
         competition = Competition.find_by(id: params[:id])
         competition.update(name: params[:name])
         render json: competition
@@ -43,7 +43,13 @@ class CompetitionsController < ApplicationController
     end
 
   
+private 
+def authorize
+    user = User.find_by(id: session[:user_id])
+    competition = Competition.find_by(id: params[:id])
 
+    return render json: { error: "Not Authorized" }, status: :unauthorized unless user.id == competition.user.id
+end
    
    
 end
