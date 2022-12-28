@@ -28,6 +28,7 @@ import EditComp from '../Components/EditComp'
     navigate('/competitions')
 
   }
+  
  
     return (
     <div className='CompTeamContainer'>
@@ -46,6 +47,7 @@ import EditComp from '../Components/EditComp'
             (<h2>{comps[params.id]?.name}</h2> )
          
          } 
+         
         <h4>Teams Participating:</h4><hr/>
         {
             comps[params.id]?.teams.map((team)=>(

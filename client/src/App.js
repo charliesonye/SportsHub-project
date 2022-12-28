@@ -29,7 +29,7 @@ function App() {
       }
     })
    
-  }, [comps])
+  }, [])
 
   useEffect(() =>{
     fetch('/teams')
