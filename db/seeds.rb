@@ -5,30 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Team.destroy_all
-Competition.destroy_all
-Player.destroy_all
+# Team.destroy_all
+# Competition.destroy_all
+# Player.destroy_all
 
 
-10.times do
+# 10.times do
     
     
-    Competition.create(name:Faker::Sports::Football.unique.competition)
-    Team.create(
-        name:Faker::Sports::Football.unique.team,
-        competition_id: rand(Competition.first.id..Competition.last.id)
-        )
+#     Competition.create({
+#       name:Faker::Sports::Football.unique.competition,
+#       user_id:rand(1..3)
+#     })
+#     Team.create(
+#         name:Faker::Sports::Football.unique.team,
+#         competition_id: rand(Competition.first.id..Competition.last.id)
+#         )
 
-end
+# end
 
 
-111.times do
-    Player.create(
-        name:Faker::Sports::Football.unique.player,
-        position:Faker::Sports::Football.position,
-        team_id:rand(Team.first.id..Team.last.id)
-        )
-end
+# 111.times do
+#     Player.create(
+#         name:Faker::Sports::Football.unique.player,
+#         position:Faker::Sports::Football.position,
+#         team_id:rand(Team.first.id..Team.last.id)
+#         )
+# end
 
 
 Review.create({user_id: 1,

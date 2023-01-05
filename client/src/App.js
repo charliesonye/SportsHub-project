@@ -62,7 +62,8 @@ function App() {
   }
   
   function handleDeleteComps(id){
-    const newListOfComps = comps.filter(comp=> comp.id === id)
+    const newListOfComps = comps.filter(comp=> comp.id !== parseInt(id))
+    
     setComps(newListOfComps)
   }
 
@@ -103,6 +104,7 @@ function App() {
             path='/teams/:id' 
             element={<TeamPlayers
                 teams={teams}
+                
               />}
           /> 
           <Route 

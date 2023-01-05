@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import Player from './Player'
+import AddPlayerForm from '../Components/AddPlayerForm'
 
 
- function TeamPlayers({teams}) {
+ function TeamPlayers({teams, setTeams}) {
     // const [team, setTeam] = useState({
     //     players: []
     // })
@@ -46,14 +47,21 @@ import Player from './Player'
     //         handleAddPlayer(newPlayer)
     //     })
     // }
-   
   
-    const teamList = teams[params.id]?.players.map((player)=> <Player key={player.id} player={player} />)
+  //   function handleAddPlayer(newPlayer){
+  //     const team = teams[params.id] 
+  //     team = teams[params.id].players.push(newPlayer) 
+      
+  //     setTeams([...teams, team])
+  // }
+  
+    const teamList = teams[params.id - 1]?.players.map((player)=> <Player key={player.id} player={player} />)
     return (
     <div>
-        <h2>Team: {teams[params.id]?.name}</h2><hr />
+        <h2>Team: {teams[params.id - 1]?.name}</h2><hr />
         {teamList}
 
+     
         {/* <h3>Add Players: </h3><hr />
         <form onSubmit={handleSubmit}>
             <label>Name: </label>

@@ -14,8 +14,10 @@ import AddReviewForm from '../Components/AddReviewForm'
     function addReviews(newReview){
         setReviews([...reviews, newReview])
     }
+
+    
         const reviewsList = reviews.map((review)=> (
-            <Review key={review.id}  review={review}/> 
+            <Review key={review.id}  review={review} teams={teams}/> 
         ))
   
         return (
