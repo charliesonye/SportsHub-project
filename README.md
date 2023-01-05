@@ -28,8 +28,8 @@ To run locally:
 ```
 $ cd p4-project
 $ bundle install
-$ bundle exec rake db:migrate
-$ bundle exec rake db:seed
-$ bundle exec rake server
+$ bundle exec rails db:migrate
+$ bundle exec rails db:seed
+$ bundle exec rails server
 
 ```
