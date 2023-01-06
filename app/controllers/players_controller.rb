@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-    # before_action :authorize
+    before_action :user_authorizer, only: [:create]
 
     def index
         players = Player.all
@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
     end
 
     def create
-        player = Player.create({
+        player = Player.create!({
             name: params[:name],
             position: params[:position],
             team_id: params[:team_id]
@@ -15,6 +15,12 @@ class PlayersController < ApplicationController
         render json: player
     end
 
+    def search
+        player = Player.where("position = ?", params[:position])
+        render json: player        
+
+    
+    end
     
 
 end

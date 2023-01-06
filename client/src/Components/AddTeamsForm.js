@@ -4,7 +4,7 @@ import React, {useState} from 'react'
  function AddTeamsForm({comps, onAddTeam}) {
   const [teamName, setTeamName] = useState('')
   const [compSelection, setCompSelection] = useState('')
-    
+  const [errors, setErrors] = useState('')
     
   function handleSubmit(e){
     e.preventDefault()
@@ -19,14 +19,17 @@ import React, {useState} from 'react'
             competition_id: compSelection
             
         })
+    }).then((res)=> {
+        if(res.ok){
+            res.json().then((data)=> onAddTeam(data))
+                
+            }else {
+            res.json().then((errors)=> setErrors(errors.errors[0]))
+        }
     })
-    .then((res)=> res.json())
-    .then((data)=> {
-       onAddTeam(data)
-       setTeamName('')
-        
-})
   }
+    
+  
   return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -43,6 +46,7 @@ import React, {useState} from 'react'
             }
             </select>
             <input type='submit' />
+            <h3 style={{color: 'red'}}>{errors}</h3>
         </form>
     </div>
   )

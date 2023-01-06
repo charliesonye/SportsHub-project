@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
-    # before_action :authorize
-
+    before_action :user_authorizer, only: [:create]
+    
     def index
         teams = Team.all
         render json: teams
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
     end
 
     def create
-        team = Team.create({
+        team = Team.create!({
             name: params[:name],
             competition_id: params[:competition_id]
         })

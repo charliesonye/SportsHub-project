@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
  function LoginForm({onLogin}) {
   const [username, setUsername] = useState('')
@@ -29,6 +30,7 @@ import React, {useState} from 'react'
   
   return (
     <div>
+        <h3>Please Log in:</h3>
         <form onSubmit={handleSubmit}>
             <label>username: </label>
             <input 
@@ -54,7 +56,7 @@ import React, {useState} from 'react'
           <li key={error}>{error}</li>
         ))
       }
-        
+        <h3>To sign up for an account, click here</h3>
     </div>
   )
 }

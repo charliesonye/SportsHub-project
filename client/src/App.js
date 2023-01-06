@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom'
 import './App.css';
 import NavBar from './Components/NavBar';
 import Competitions from './Pages/Competitions';
@@ -13,6 +14,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [comps, setComps] = useState([])
   const [teams, setTeams] = useState([])
+  const [players, setPlayers] = useState([])
 
   useEffect(()=>{
     fetch('/me').then((res)=>{
@@ -37,13 +39,27 @@ function App() {
     .then((data)=> setTeams(data))
   }, [])
 
+ 
+ 
+  
+  useEffect(()=>{
+    fetch('/players')
+    .then((res)=>res.json())
+    .then((data)=> setPlayers(data) )
+    }, [])
+   
+    function handleAddPlayer(newPlayer){
+      setPlayers([...players, newPlayer])
+      
+    }
+
   function handleAddComps(newComp){
     setComps([...comps, newComp])
   }
 
   function handleAddTeams(newTeam){
     setTeams([...teams, newTeam])
-    
+     
   }
 
 
@@ -89,6 +105,7 @@ function App() {
                 teams={teams}
                 onAddTeam={handleAddTeams}
                 comps={comps}
+                handleAddPlayer={handleAddPlayer}
               />} 
           />
           <Route 

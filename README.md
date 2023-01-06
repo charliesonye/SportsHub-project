@@ -17,11 +17,23 @@ This project allows football fans to create teams with players of their choosing
 * Full crud capabilities with competition data 
 * Able to add players, reviews and teams to database
 
-
-## Technologies
+## Client Technologies
 The technologies used within this app:
 * React.js
 * React-router-dom 5.2.0
+
+## Client Setup
+To run locally:
+```
+$ cd p4-project
+$ npm install
+$ npm start --prefix client
+```
+
+
+## Server Technologies
+The technologies used within this app:
+Ruby Gems: Bcrypt, Active Record, SQLite3, Rails, Thin
 
 ## Setup
 To run locally:

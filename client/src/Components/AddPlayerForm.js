@@ -22,9 +22,10 @@ import {useNavigate} from 'react-router-dom'
             })
         })
         .then((res)=> res.json())
-        .then((newPlayer)=> {
-            handleAddPlayer(newPlayer)
-            navigate('/teams')
+        .then((data)=> {
+           
+            handleAddPlayer(data)
+            navigate(`/teams/${teamIdSelection}`)
         })
     }
 

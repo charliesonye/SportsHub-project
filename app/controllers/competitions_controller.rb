@@ -13,7 +13,7 @@ class CompetitionsController < ApplicationController
 
     def create
         user = User.find_by(id: session[:user_id])
-        competition = user.competitions.create({name: params[:name]})
+        competition = user.competitions.create!({name: params[:name]})
         render json: competition
     end
 

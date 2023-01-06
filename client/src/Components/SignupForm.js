@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 function SignupForm({onLogin}) {
  const [username, setUsername] = useState('')
@@ -31,6 +32,7 @@ function SignupForm({onLogin}) {
   
   return (
     <div>
+       <h3>Please Sign up:</h3><hr/>
       <form onSubmit= {handleSubmit}>
         <label>username:</label>
         <input 
@@ -63,7 +65,7 @@ function SignupForm({onLogin}) {
           <li key={error}>{error}</li>
         ))
       }
-     
+     <h3>If you already have an account, click here</h3>
       
     </div>
   )
